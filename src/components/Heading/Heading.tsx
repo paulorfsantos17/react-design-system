@@ -4,11 +4,11 @@ import { ReactNode } from 'react';
 
 export interface PropsHeading {
   size?: 'sm' | 'md' | 'lg',
-  
   children: ReactNode,
-  asChild?: boolean
+  asChild?: boolean,
+  className?: string
 } 
-export function Heading ({size =  'md', children, asChild}: PropsHeading){
+export function Heading ({size =  'md', children, asChild, className}: PropsHeading){
   const Comp = asChild ? Slot : 'h2'
 
   return (
@@ -17,7 +17,8 @@ export function Heading ({size =  'md', children, asChild}: PropsHeading){
         'text-lg': size === 'sm',
         'text-xl': size === 'md',
         'text-2xl': size === 'lg'
-    }
+    }, 
+    className
     )}
     >
       {children}

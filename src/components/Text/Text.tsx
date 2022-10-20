@@ -5,9 +5,11 @@ import { ReactNode } from 'react';
 export interface PropsText {
   size?: 'sm' | 'md' | 'lg',
   children: ReactNode,
-  asChild?: boolean
+  asChild?: boolean,
+  className?: string
+
 } 
-export function Text ({size =  'md', children, asChild}: PropsText){
+export function Text ({size =  'md', children, asChild, className}: PropsText){
   const Comp = asChild ? Slot : 'span'
 
   return (
@@ -16,7 +18,8 @@ export function Text ({size =  'md', children, asChild}: PropsText){
         'text-xs': size === 'sm',
         'text-sm': size === 'md',
         'text-md': size === 'lg'
-    }
+    },
+    className
     )}
     >
       {children}
